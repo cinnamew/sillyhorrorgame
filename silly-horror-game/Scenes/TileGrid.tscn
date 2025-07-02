@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqvay0iimm10"]
+
+[ext_resource type="Script" uid="uid://dfwqp6t2bi8a7" path="res://Scenes/tile_grid.gd" id="1_0q3by"]
+[ext_resource type="TileSet" uid="uid://bypx3y36cbhb0" path="res://Assets/placeholders/placeholder_tileset.tres" id="1_aaup4"]
+
+[node name="TileGrid" type="Node2D"]
+script = ExtResource("1_0q3by")
+
+[node name="tilemap" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_aaup4")
