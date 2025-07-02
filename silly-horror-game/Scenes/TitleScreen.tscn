@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmlbhbtn723pa"]
+[gd_scene load_steps=5 format=3 uid="uid://bmlbhbtn723pa"]
 
+[ext_resource type="Script" uid="uid://ctlgu8ubhqbua" path="res://Scripts/title_screen.gd" id="1_8l4an"]
 [ext_resource type="Texture2D" uid="uid://ff0meyfei8i0" path="res://Assets/placeholders/nightbg.png" id="1_uebgo"]
-[ext_resource type="Theme" uid="uid://7d2mci4paw10" path="res://Assets/UI/TestTheme.tres" id="1_vmg2h"]
+[ext_resource type="Theme" uid="uid://kl8xob3fmkn1" path="res://Assets/UI/titlebutton.tres" id="2_vmg2h"]
+
+[sub_resource type="Theme" id="Theme_8l4an"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -10,7 +13,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_vmg2h")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_8l4an")
+script = ExtResource("1_8l4an")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -22,8 +28,42 @@ grow_vertical = 2
 texture = ExtResource("1_uebgo")
 expand_mode = 3
 
-[node name="play button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -55.0
+offset_right = 141.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="play button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_vmg2h")
+theme_override_font_sizes/font_size = 40
 text = "play!"
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_vmg2h")
+theme_override_font_sizes/font_size = 40
+text = "settings :0"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_vmg2h")
+theme_override_font_sizes/font_size = 40
+text = "quit :c"
+
+[connection signal="pressed" from="VBoxContainer/play button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
