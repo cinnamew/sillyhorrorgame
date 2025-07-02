@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmlbhbtn723pa"]
+[gd_scene load_steps=3 format=3 uid="uid://bmlbhbtn723pa"]
 
 [ext_resource type="Texture2D" uid="uid://ff0meyfei8i0" path="res://Assets/placeholders/nightbg.png" id="1_uebgo"]
+[ext_resource type="Theme" uid="uid://7d2mci4paw10" path="res://Assets/UI/TestTheme.tres" id="1_vmg2h"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vmg2h")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,3 +21,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_uebgo")
 expand_mode = 3
+
+[node name="play button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "play!"
