@@ -1,21 +1,21 @@
+class_name TileGrid
 extends Node2D
 
-
 const CHUNK_SIZE = 8
-const NUM_CHUNKS = 3 # 3 x 3 chunks
-const NUM_LAYERS = 3
-const BLOCK_HEIGHT = 16
+const BLOCK_HEIGHT = 8
+const BLOCK_WIDTH = 16
 
-var layers = []
+var layers : Array[TileMapLayer] = []
 var grid = []
 
 var rng = RandomNumberGenerator.new()
 
 enum Tiles {
+	TILE_ICE,
 	TILE_DIRT,
 	TILE_GRASS,
-	TILE_ICE,
 	TILE_STONE,
+	TILE_WATER,
 }
 
 const tile_data = {
@@ -23,47 +23,54 @@ const tile_data = {
 	Tiles.TILE_GRASS: Vector2i(0, 2),
 	Tiles.TILE_STONE: Vector2i(8, 5),
 }
-
+func get_tile(layer_id : int, x, y):
+	return layers[layer_id].get_cell_tile_data(Vector2i(x, y))
+	
+func get_tile_type(layer_id : int, x, y):
+	var tile = get_tile(layer_id, x, y)
+	
+	
 func _ready():
 	setup_layers()
-	generate_map()
-	render_grid()
-	
-func generate_map():
-	print("Generating Map")
-	# Bedrock phase
+	#generate_map()
+	#render_grid()
+
+func generate_flat_chunk(tile: Tiles):
 	var layer = []
 	for x in range(CHUNK_SIZE):
 		var row = []
 		for y in range(CHUNK_SIZE):
-			row.append(Tiles.TILE_STONE)
+			row.append(tile)
 		layer.append(row)
-	grid.append(layer)
+	return layer
 	
-	# Dirt Layer
-	layer = []
-	for x in range(CHUNK_SIZE):
-		var row = []
-		for y in range(CHUNK_SIZE):
-			row.append(Tiles.TILE_DIRT)
-		layer.append(row)
-	grid.append(layer)
+func generate_bedrock():
+	return generate_flat_chunk(Tiles.TILE_STONE)
 	
-	# Grass Layer
-	layer = []
-	for x in range(CHUNK_SIZE):
-		var row = []
-		for y in range(CHUNK_SIZE):
-			row.append(Tiles.TILE_GRASS)
-		layer.append(row)
-	grid.append(layer)
+func generate_dirt():
+	return generate_flat_chunk(Tiles.TILE_DIRT)
+
+func generate_grass():
+	return generate_flat_chunk(Tiles.TILE_GRASS)
+		
+func generate_map():
+	print("Generating Map")
+	grid.append(generate_bedrock())
+	grid.append(generate_dirt())
+	grid.append(generate_grass())
 	
-	
+# Loads all the layers in $Layers into the layers array
 func setup_layers():
-	layers.append($layer1)
-	layers.append($layer2)
-	layers.append($layer3)
-	
+	var l = $Layers
+	var i = 0
+	for child in l.get_children():
+		if child is TileMapLayer:
+			child.position.y = i * -BLOCK_HEIGHT
+			layers.append(child)
+		i += 1
+
+# Render grid from array
+# NOTE: currently using premade levels	
 func render_grid():
 	print(layers)
 	for z in range(len(grid)):

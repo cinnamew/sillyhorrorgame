@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://hqvay0iimm10"]
+[gd_scene load_steps=3 format=4 uid="uid://hqvay0iimm10"]
 
 [ext_resource type="Script" uid="uid://dfwqp6t2bi8a7" path="res://Scenes/tile_grid.gd" id="1_0q3by"]
 [ext_resource type="TileSet" uid="uid://bypx3y36cbhb0" path="res://Assets/placeholders/placeholder_tileset.tres" id="1_aaup4"]
@@ -6,13 +6,29 @@
 [node name="TileGrid" type="Node2D"]
 script = ExtResource("1_0q3by")
 
-[node name="layer1" type="TileMapLayer" parent="."]
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="layer1" type="TileMapLayer" parent="Layers"]
+tile_map_data = PackedByteArray("AAAEAAEAAAAIAAUAAAAFAAEAAAAIAAUAAAAFAAIAAAAIAAUAAAAEAAIAAAAIAAUAAAAFAAMAAAAIAAUAAAAGAAIAAAAIAAUAAAAGAAEAAAAIAAUAAAAEAAMAAAAIAAUAAAAGAAMAAAAIAAUAAAAHAAMAAAAIAAUAAAAHAAIAAAAIAAUAAAAHAAEAAAAIAAUAAAAIAAEAAAAIAAUAAAAIAAAAAAAIAAUAAAAJAAEAAAAIAAUAAAAJAAIAAAAIAAUAAAAJAAMAAAAIAAUAAAAIAAMAAAAIAAUAAAAIAAIAAAAIAAUAAAAJAAAAAAAIAAUAAAAHAAAAAAAIAAUAAAAGAAAAAAAIAAUAAAAFAAAAAAAIAAUAAAAEAAAAAAAIAAUAAAA=")
 tile_set = ExtResource("1_aaup4")
 
-[node name="layer2" type="TileMapLayer" parent="."]
+[node name="layer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAAEAAMAAAADAAAAAAAFAAMAAAADAAAAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAJAAMAAAADAAAAAAAJAAIAAAADAAAAAAAJAAEAAAADAAAAAAAJAAAAAAADAAAAAAAIAAAAAAADAAAAAAAIAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAGAAIAAAADAAAAAAAFAAIAAAADAAAAAAAEAAIAAAADAAAAAAAEAAEAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAAGAAEAAAADAAAAAAAFAAEAAAADAAAAAAA=")
 tile_set = ExtResource("1_aaup4")
 
-[node name="layer3" type="TileMapLayer" parent="."]
+[node name="layer3" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -16)
+tile_map_data = PackedByteArray("AAAEAAMAAAAHAAMAAAAFAAMAAAAHAAMAAAAGAAMAAAAHAAMAAAAHAAMAAAAHAAMAAAAIAAMAAAAHAAMAAAAJAAMAAAAHAAMAAAAJAAIAAAAHAAMAAAAJAAEAAAAHAAMAAAAJAAAAAAAHAAMAAAAIAAAAAAAHAAMAAAAIAAEAAAAHAAMAAAAIAAIAAAAHAAMAAAAHAAIAAAAHAAMAAAAGAAIAAAAHAAMAAAAFAAIAAAAHAAMAAAAEAAIAAAAHAAMAAAAEAAEAAAAHAAMAAAAEAAAAAAAHAAMAAAAFAAAAAAAHAAMAAAAGAAAAAAAHAAMAAAAHAAAAAAAHAAMAAAAHAAEAAAAHAAMAAAAGAAEAAAAHAAMAAAAFAAEAAAAHAAMAAAA=")
 tile_set = ExtResource("1_aaup4")
+
+[node name="layer4" type="TileMapLayer" parent="Layers"]
+tile_set = ExtResource("1_aaup4")
+
+[node name="layer5" type="TileMapLayer" parent="Layers"]
+tile_set = ExtResource("1_aaup4")
+
+[node name="layer6" type="TileMapLayer" parent="Layers"]
+tile_set = ExtResource("1_aaup4")
+
+[node name="Node2D" type="Node2D" parent="."]

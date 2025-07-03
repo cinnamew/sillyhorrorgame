@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cleky7bp16g0x"]
+
+[ext_resource type="Texture2D" uid="uid://wthyx074kh56" path="res://Assets/Sprite Sheet (10x10).png" id="1_8pp82"]
+
+[node name="Cursor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8pp82")
+region_enabled = true
+region_rect = Rect2(26, 26, 8, 8)
