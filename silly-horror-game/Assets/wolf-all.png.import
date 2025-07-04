@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wthyx074kh56"
-path="res://.godot/imported/Sprite Sheet (10x10).png-f405cb9eb38e83e521f12f220ebb0c93.ctex"
+uid="uid://cd670a4weu6m4"
+path="res://.godot/imported/wolf-all.png-abed2b1b3af4a32dc8d1f6314fa8c95c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite Sheet (10x10).png"
-dest_files=["res://.godot/imported/Sprite Sheet (10x10).png-f405cb9eb38e83e521f12f220ebb0c93.ctex"]
+source_file="res://Assets/wolf-all.png"
+dest_files=["res://.godot/imported/wolf-all.png-abed2b1b3af4a32dc8d1f6314fa8c95c.ctex"]
 
 [params]
 

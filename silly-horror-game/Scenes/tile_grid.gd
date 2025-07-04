@@ -18,6 +18,15 @@ enum Tiles {
 	TILE_WATER,
 }
 
+enum Direction {
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}
+
+var orientation = Direction.NORTH
+
 const tile_data = {
 	Tiles.TILE_DIRT: Vector2i(3,0),
 	Tiles.TILE_GRASS: Vector2i(0, 2),
@@ -29,11 +38,16 @@ func get_tile(layer_id : int, x, y):
 func get_tile_type(layer_id : int, x, y):
 	var tile = get_tile(layer_id, x, y)
 	
+func load_map():
+	pass
+	
 	
 func _ready():
 	setup_layers()
+	load_map()
 	#generate_map()
 	#render_grid()
+
 
 func generate_flat_chunk(tile: Tiles):
 	var layer = []
@@ -70,9 +84,7 @@ func setup_layers():
 		i += 1
 
 # Render grid from array
-# NOTE: currently using premade levels	
 func render_grid():
-	print(layers)
 	for z in range(len(grid)):
 		for y in range(len(grid[z])):
 			for x in range(len(grid[z][y])):
